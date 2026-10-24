@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safollo Tuition Center - Exam Tools</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      padding: 14px;
+    }
+
+    .tools-row-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Dynamic Gradient Heading Bar */
+    .heading-bar {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb, #7c3aed, #db2777);
+      background-size: 250% 250%;
+      animation: gradientFlow 7s ease infinite;
+      color: #ffffff;
+      text-align: center;
+      padding: 16px 14px;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle shine effect across the header */
+    .heading-bar::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.13);
+      transform: rotate(25deg);
+      animation: shineSweep 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .heading-bar h1 {
+      font-size: clamp(1.15rem, 4.2vw, 1.65rem);
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes shineSweep {
+      0%, 60% { left: -60%; }
+      100% { left: 130%; }
+    }
+
+    /* Always 3 boxes in a single row — even on mobile screens */
+    .box-row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tool-box {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 6px;
+      text-decoration: none;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.06);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      position: relative;
+      min-height: 110px;
+    }
+
+    .tool-box:hover,
+    .tool-box:active {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.14);
+    }
+
+    /* Individual box border & gradient accents */
+    .box-qp {
+      border-color: #bfdbfe;
+      background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+    }
+    .box-qp:hover { border-color: #2563eb; }
+
+    .box-omr {
+      border-color: #bbf7d0;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+    }
+    .box-omr:hover { border-color: #16a34a; }
+
+    .box-gk {
+      border-color: #fde68a;
+      background: linear-gradient(180deg, #ffffff 0%, #fffbeb 100%);
+    }
+    .box-gk:hover { border-color: #d97706; }
+
+    .box-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    }
+
+    .box-title {
+      font-size: clamp(0.72rem, 2.6vw, 0.95rem);
+      font-weight: 700;
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    /* External link badge on Box 3 */
+    .ext-badge {
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #b45309;
+      background: #fef3c7;
+      padding: 1px 5px;
+      border-radius: 6px;
+    }
+
+    @media (min-width: 600px) {
+      .heading-bar {
+        padding: 20px 18px;
+        border-radius: 18px;
+        margin-bottom: 18px;
+      }
+      .box-row-3 {
+        gap: 16px;
+      }
+      .tool-box {
+        padding: 20px 14px;
+        min-height: 135px;
+      }
+      .box-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tools-row-wrapper">
+
+    <!-- Dynamic Gradient Heading Bar -->
+    <header class="heading-bar">
+      <h1>Safollo Tuition Center</h1>
+    </header>
+
+    <!-- 3 Side-by-Side Boxes in 1 Row -->
+    <div class="box-row-3">
+
+      <!-- Box 1: Question Paper Maker -->
+      <a href="#question-paper-maker" class="tool-box box-qp">
+        <div class="box-icon">📝</div>
+        <span class="box-title">Question Paper Maker</span>
+      </a>
+
+      <!-- Box 2: OMR Sheet Creator -->
+      <a href="#omr-sheet-creator" class="tool-box box-omr">
+        <div class="box-icon">⭕</div>
+        <span class="box-title">OMR Sheet Creator</span>
+      </a>
+
+      <!-- Box 3: GK Question Generator (External Link) -->
+      <a href="https://example.com/gk-question-generator" target="_blank" rel="noopener noreferrer" class="tool-box box-gk">
+        <span class="ext-badge">↗</span>
+        <div class="box-icon">🌐</div>
+        <span class="box-title">GK Question Generator</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
